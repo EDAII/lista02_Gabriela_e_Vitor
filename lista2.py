@@ -40,20 +40,20 @@ def bubble_sort(vector):
                 change = True
 
 def shell_sort(vector):
-    gap = len(vector)/2
+    gap = int(len(vector)/2)
     size = len(vector)
-    
+
     while(gap > 0):
         for i in range(gap,size):
             temp = vector[i]
             j = i
             while(j >= gap and (vector[j-gap] > temp)):
                 vector[j] = vector[j-gap]
-                j-= gap 
+                j-= gap
             vector[j] = temp
-        gap = gap/2
+        gap = int(gap/2)
 
-                
+
 
 v = generate_vector()
 print (v)

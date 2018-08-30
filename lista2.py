@@ -19,8 +19,17 @@ def selection_sort(vector):
             v[smaller_index] = v[i]
             v[i] = aux
 
+def insertion_sort(vector):
+    for i in range(1,len(vector)):
+        j = i
+        while((j!=0) and (vector[j] < vector[j-1])):
+            aux = vector[j]
+            vector.pop(j)
+            vector.insert(j-1, aux)
+            j = j -1
 
 v = generate_vector()
 print (v)
-selection_sort(v)
+# selection_sort(v)
+insertion_sort(v)
 print (v)

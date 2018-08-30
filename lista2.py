@@ -73,44 +73,36 @@ def menu():
     vector_size = int(input('Tamanho do vetor: '))
     intervals = int(input('\nMaior numero possivel do vetor: '))
 
-    v_selection = generate_vector(vector_size, intervals)
-    v_insertion = generate_vector(vector_size, intervals)
-    v_bubble = generate_vector(vector_size, intervals)
-    v_shell = generate_vector(vector_size, intervals)
+    v = generate_vector(vector_size, intervals)
+    v_selection = []
+    v_insertion = []
+    v_bubble = []
+    v_shell = []
+
+    for element in v:
+        v_selection.append(element)
+        v_insertion.append(element)
+        v_shell.append(element)
+        v_bubble.append(element)
 
     os.system('clear')
     print('=============== Resultado ===============\n\n')
+
     if vector_size < 50:
-        print('Selection sort:')
-        print('Vetor: '+  str(v_selection))
-        selection_sort(v_selection)
-        print('Vetor ordenado: ' + str(v_selection))
-
-        print('\nInsertion sort:')
-        print('Vetor: '+ str(v_insertion))
-        insertion_sort(v_insertion)
-        print('Vetor ordenado: '+str(v_insertion))
-
-        print('\nBubble sort:')
-        print('Vetor: '+ str(v_bubble))
-        bubble_sort(v_bubble)
-        print('Vetor ordenado: '+str(v_insertion))
-
-        print('\nShell sort:')
-        print('Vetor: '+ str(v_shell))
-        shell_sort(v_shell)
-        print('Vetor ordenado: '+str(v_shell))
+        print('Vetor: ' + str(v))
     else:
-        print('OBS.:Os vetores estao muito grandes para serem mostrados na tela\n')
-        print('Selection sort:')
-        selection_sort(v_selection)
+        print('OBS.:O vetor esta muito grande para ser mostrado na tela\n')
+    print('\nSelection sort:')
+    selection_sort(v_selection)
 
-        print('\nInsertion sort:')
-        insertion_sort(v_insertion)
+    print('\nInsertion sort:')
+    insertion_sort(v_insertion)
 
-        print('\nBubble sort:')
-        bubble_sort(v_bubble)
+    print('\nBubble sort:')
+    bubble_sort(v_bubble)
 
-        print('\nShell sort:')
-        shell_sort(v_shell)
+    print('\nShell sort:')
+    shell_sort(v_shell)
+    if vector_size < 50:
+        print('\nVetor Ordenado:' + str(v_bubble))
 menu()

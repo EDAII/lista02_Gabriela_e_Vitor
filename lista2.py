@@ -28,8 +28,37 @@ def insertion_sort(vector):
             vector.insert(j-1, aux)
             j = j -1
 
+def bubble_sort(vector):
+    change = True
+    while(change):
+        change = False
+        for i in range(0,len(vector)-1):
+            if(vector[i] > vector[i+1]):
+                aux = vector[i+1]
+                vector[i+1] = vector[i]
+                vector[i] = aux
+                change = True
+
+def shell_sort(vector):
+    gap = len(vector)/2
+    size = len(vector)
+    
+    while(gap > 0):
+        for i in range(gap,size):
+            temp = vector[i]
+            j = i
+            while(j >= gap and (vector[j-gap] > temp)):
+                vector[j] = vector[j-gap]
+                j-= gap 
+            vector[j] = temp
+        gap = gap/2
+
+                
+
 v = generate_vector()
 print (v)
 # selection_sort(v)
-insertion_sort(v)
+#insertion_sort(v)
+#bubble_sort(v)
+shell_sort(v)
 print (v)
